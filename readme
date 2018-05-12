@@ -1,15 +1,25 @@
 
 Using android systrcae in native code 
-Show the cmakelist example.
 
 
-include_directories(
-${PROJECT_SOURCE_DIR}/Thirdparty/Trace
-)
+//========================================================
+	Cmakelist example::
+	include_directories(
+		${PROJECT_SOURCE_DIR}/Thirdparty/Trace
+	)
 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+	set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
-add_library(${PROJECT_NAME} SHARED
-${PROJECT_SOURCE_DIR}/Thirdparty/Trace/trace.cpp
-)
+	add_library(${PROJECT_NAME} SHARED
+		${PROJECT_SOURCE_DIR}/Thirdparty/Trace/trace.cpp
+	)
+//========================================================
+	Using example:
+	1.Initalize
+		Tracer tracer;
+		tracer.init();
+        2.Estimate function cost time and trace system process
+		tracer.trace_begin("function name");
+	        tracer.trace_end();
+//========================================================
 
