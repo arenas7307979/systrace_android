@@ -11,17 +11,17 @@
 
 class Tracer {
 public:
-	void trace_init();
+	static void trace_init();
 
 
-	inline void trace_begin(const char *name)
+	static inline void trace_begin(const char *name)
 	{
 	    char buf[ATRACE_MESSAGE_LEN];
 	    int len = snprintf(buf, ATRACE_MESSAGE_LEN, "B|%d|%s", getpid(), name);
 	    write(atrace_marker_fd, buf, len);
 	}
 
-	inline void trace_end()
+	static inline void trace_end()
 	{
 	    char c = 'E';
 	    write(atrace_marker_fd, &c, 1);
