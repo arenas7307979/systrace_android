@@ -27,7 +27,7 @@ public:
 	    write(atrace_marker_fd, &c, 1);
 	}
 
-	int atrace_marker_fd;
+	static int atrace_marker_fd;
 };
 
 #endif
